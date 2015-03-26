@@ -5,6 +5,6 @@ bin
 obj
 .idea
 .DS_STORE
-src/*.map
-/src/*.js
+src/**/*.map
+src/**/*.js
 *.suo
