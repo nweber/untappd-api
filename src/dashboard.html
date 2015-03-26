@@ -1,0 +1,81 @@
+<template>
+    <section>
+        <!--
+        <form role="form" submit.delegate="welcome()">
+            <div class="form-group">
+                <label for="fn">First Name</label>
+                <input type="text" value.bind="model.user.first_name" class="form-control" id="fn" placeholder="first name">
+            </div>
+            <div class="form-group">
+                <label for="ln">Last Name</label>
+                <input type="text" value.bind="model.user.last_name" class="form-control" id="ln" placeholder="last name">
+            </div>
+            <div class="form-group">
+                <label>Full Name</label>
+                <p class="help-block">${fullName}</p>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        -->
+
+        <h2>${heading}</h2>
+        <hr/>
+        <h3>Authorization</h3>
+        <button click.trigger="onLoginClick()">Log In</button> <!-- Change label based on status. -->
+        <button click.trigger="onLogoutClick()">Log Out</button> <!-- Change label based on status. -->
+        <p/>
+        <p>${model.user.user_name}</p>
+        <!--
+            <hr/>
+            <h3>Feeds</h3>
+        -->
+        <hr/>
+        <h3>Information</h3>
+        <p>Brewery</p>
+        <button click.trigger="getBreweryDetails()">Get Details</button>
+        <select id="info-brewery-list">
+            <option value="2605">Revolution Brewing Company</option>
+        </select>
+        <p/>
+        <p>Beer</p>
+        <button click.trigger="getBeerDetails()">Get Details</button>
+        <select id="info-beer-list">
+            <option value="21367">Spaten Dunkel</option>
+            <option value="6775">Left Hand Oktoberfest</option>
+            <option value="4904">Atwater Voodoovator</option>
+            <option value="71833">Smoke & Dagger</option>
+        </select>
+        <p/>
+        <p>Venue</p>
+        <button click.trigger="getVenueDetails()">Get Details</button>
+        <select id="info-venue-list">
+            <option value="55544">Bigby's Pour House</option>
+        </select>
+        <p/>
+        <p>Check In</p>
+        <button click.trigger="getCheckInDetails()">Get Details</button>
+        <select id="info-checkin-list">
+            <option value="133387163">11/28/14 BCBS</option>
+        </select>
+        <br/>
+        <!--
+            <hr/>
+            <h3>User</h3>
+
+            <hr/>
+            <h3>Search</h3>
+
+            <hr/>
+            <h3>Check Ins</h3>
+
+            <hr/>
+            <h3>Wish List</h3>
+
+            <hr/>
+            <h3>Friends</h3>
+
+            <hr/>
+            <h3>Notifications</h3>
+        -->
+    </section>
+</template>

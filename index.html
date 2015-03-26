@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Untapped API Test Harness</title>
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" type="text/css" href="jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
+
+    <script src="lib/jquery-2.1.1.min.js"></script> <!-- get from jspm -->
+    <script src="lib/jquery.cookie.js"></script> <!-- get from jspm -->
+
+    <script src="src/untappd.js"></script>
+
+    <script src="src/untappd/valueobjects/valueobjects.js"></script>
+    <script src="src/untappd/valueobjects/badge.js"></script>
+    <script src="src/untappd/valueobjects/beer.js"></script>
+    <script src="src/untappd/valueobjects/brewery.js"></script>
+    <script src="src/untappd/valueobjects/checkin.js"></script>
+    <script src="src/untappd/valueobjects/generic.js"></script>
+    <script src="src/untappd/valueobjects/user.js"></script>
+    <script src="src/untappd/valueobjects/venue.js"></script>
+
+    <script src="src/untappd/constants.js"></script>
+    <script src="src/untappd/authentication.js"></script>
+    <script src="src/untappd/checkins.js"></script>
+    <script src="src/untappd/feeds.js"></script>
+    <script src="src/untappd/friends.js"></script>
+    <script src="src/untappd/info.js"></script>
+    <script src="src/untappd/notifications.js"></script>
+    <script src="src/untappd/search.js"></script>
+    <script src="src/untappd/user.js"></script>
+    <script src="src/untappd/wishlist.js"></script>
+
+    <script src="src/app/model.js"></script>
+</head>
+<body aurelia-app>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        System.baseUrl = 'src';
+        System.import('aurelia-bootstrapper');
+    </script>
+</body>
+</html>
