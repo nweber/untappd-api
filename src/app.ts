@@ -1,7 +1,6 @@
-/// <reference path="../tsd/jquery.d.ts" />
-/// <reference path="../tsd/jquery.cookie.d.ts" />
-/// <reference path="../tsd/es6-promise.d.ts" />
-/// <reference path="../tsd/aurelia.d.ts" />
+/// <reference path="../typings/jquery/jquery.d.ts" />
+/// <reference path="../typings/jquery.cookie/jquery.cookie.d.ts" />
+/// <reference path="../typings/aurelia/aurelia.d.ts" />
 /// <reference path="untappd.ts" />
 
 import aur = require("aurelia-router");
@@ -15,6 +14,7 @@ export class App {
             config.map([
                 { route: ["", "welcome"], moduleId: "welcome", nav: true, title: "Welcome" },
                 { route: "dashboard", moduleId: "dashboard", nav: true, title: "Dashboard" },
+                { route: "map", moduleId: "map", nav: true, title: "Checkin Map" }
             ]);
         });
     }

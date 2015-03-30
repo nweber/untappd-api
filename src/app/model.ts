@@ -1,5 +1,3 @@
-/// <reference path="../../tsd/jquery.d.ts" />
-/// <reference path="../../tsd/jquery.cookie.d.ts" />
 /// <reference path="../untappd.ts" />
 
 class ApplicationModel {

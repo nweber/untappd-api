@@ -1,3 +1,4 @@
+/// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="untappd/valueobjects/valueobjects.ts" />
 /// <reference path="untappd/constants.ts" />
 /// <reference path="untappd/info.ts" />
@@ -11,6 +12,15 @@
 /// <reference path="untappd/notifications.ts" />
 
 module Untappd {
+    export class Fooboo {
+        name: string;
+        uid: number;
+
+        testMethod() {
+            Untappd.Authentication.login();
+        }
+    }
+
     export module API {
         export var endpoint: string = "https://api.untappd.com";
 

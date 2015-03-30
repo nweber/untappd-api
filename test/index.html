@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<style>
+
+    svg {
+        font: 10px sans-serif;
+    }
+
+    .caption {
+        font-weight: bold;
+    }
+
+    .key path {
+        display: none;
+    }
+
+    .key line {
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .county {
+        fill: #eee;
+    }
+
+    .county-border {
+        fill: none;
+        stroke: #fff;
+    }
+
+    .state-border {
+        fill: none;
+        stroke: #333;
+    }
+
+</style>
+
+<script>
+
+    var width = 960, height = 70;
+
+
+    var color = d3.scale.threshold()
+            .domain([30, 60, 120, 360])
+            .range(["#ffffcc","#c2e699","#78c679","#31a354","#006837"]);
+
+    // A position encoding for the key only.
+    var x = d3.scale.linear()
+            .domain([0, 390])
+            .range([0, 240]);
+
+    var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .tickSize(13)
+            .tickValues(color.domain());
+
+    var path = d3.geo.path();
+
+    var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+    var g = svg.append("g")
+            .attr("class", "key")
+            .attr("transform", "translate(40,40)");
+
+    g.selectAll("rect")
+            .data(color.range().map(function(d, i) {
+                return {
+                    x0: i ? x(color.domain()[i - 1]) : x.range()[0],
+                    x1: i < color.domain().length ? x(color.domain()[i]) : x.range()[1],
+                    z: d
+                };
+            }))
+            .enter().append("rect")
+            .attr("height", 8)
+            .attr("x", function(d) { return d.x0; })
+            .attr("width", function(d) { return d.x1 - d.x0; })
+            .style("fill", function(d) { return d.z; });
+
+    g.call(xAxis).append("text")
+            .attr("class", "caption")
+            .attr("y", -6)
+            .text("Population per square mile");
+
+    // map
+
+    var width = 960, height = 500;
+
+    var color = d3.scale.log()
+            .range(["hsl(62,100%,90%)", "hsl(228,30%,20%)"])
+            .interpolate(d3.interpolateHcl);
+
+    var path = d3.geo.path()
+            .projection(null);
+
+    var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+    d3.json("us-albers.json", function(error, us) {
+        var counties = topojson.feature(us, us.objects.counties).features;
+
+        var densities = counties
+                .map(function(d) { return d.properties.density = d.properties.pop / path.area(d); })
+                .sort(function(a, b) { return a - b; });
+
+        color.domain([d3.quantile(densities, .01), d3.quantile(densities, .99)]);
+
+        svg.append("g")
+                .attr("class", "counties")
+                .selectAll("path")
+                .data(counties)
+                .enter().append("path")
+                .style("fill", function(d) { return color(d.properties.density); })
+                .attr("d", path);
+    });
+
+</script>
+
+</body>
+</html>

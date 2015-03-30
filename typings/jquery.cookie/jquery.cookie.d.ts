@@ -3,7 +3,7 @@
 // Definitions by: Roy Goode <https://github.com/RoyGoode/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-///<reference path="jquery.d.ts" />
+///<reference path="../jquery/jquery.d.ts" />
 
 
 interface JQueryCookieOptions {

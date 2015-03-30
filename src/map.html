@@ -1,0 +1,40 @@
+<template>
+    <import from="components/map-key"></import>
+    <section>
+        <style>
+
+            svg {
+                font: 10px sans-serif;
+            }
+
+            .caption {
+                font-weight: bold;
+            }
+
+            .key path {
+                display: none;
+            }
+
+            .key line {
+                stroke: #000;
+                shape-rendering: crispEdges;
+            }
+
+            .county {
+                fill: #eee;
+            }
+
+            .county-border {
+                fill: none;
+                stroke: #fff;
+            }
+
+            .state-border {
+                fill: none;
+                stroke: #333;
+            }
+
+        </style>
+    </section>
+    <map-key to="John"></map-key>
+</template>

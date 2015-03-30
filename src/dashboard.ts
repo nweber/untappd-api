@@ -1,5 +1,4 @@
-/// <reference path="../tsd/jquery.d.ts" />
-/// <reference path="../tsd/jquery.cookie.d.ts" />
+/// <reference path="../typings/jquery/jquery.d.ts" />
 /// <reference path="untappd.ts" />
 /// <reference path="app/model.ts" />
 

@@ -1,3 +1,5 @@
+/// <reference path="../../typings/jquery/jquery.d.ts" />
+/// <reference path="../../typings/jquery.cookie/jquery.cookie.d.ts" />
 /// <reference path="../untappd.ts" />
 
 module Untappd {
